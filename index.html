@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Leaflet - Saint-Palais</title>
+    <!-- Import de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 500px; /* Ajustez la hauteur selon vos besoins */
+        }
+    </style>
+</head>
+<body>
+    <h1>Carte centrée sur Saint-Palais</h1>
+    <div id="map"></div>
+​
+    <script>
+        // Initialisation de la carte
+        var map = L.map('map').setView([43.3274, -1.0351], 9); // Coordonnées pour Saint-Palais
+​
+        // Ajout de la couche OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+​
+        // Ajout d'un marqueur sur Saint-Palais
+        var marker = L.marker([43.3274, -1.0351]).addTo(map);
+        marker.bindPopup("<b>Saint-Palais</b><br>Un beau village dans les Pyrénées-Atlantiques.").openPopup();
+    </script
